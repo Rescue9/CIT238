@@ -23,8 +23,12 @@ public class SecondActivity extends Activity {
 
         //-- get the EditText view --
         EditText txt_username = (EditText) findViewById(R.id.txtUsername);
-        //-- set the data to pass back --
-        data.setData(Uri.parse(txt_username.getText().toString()));
+        //-- create a bundle for the data
+        Bundle extras = new Bundle();
+        extras.putString("person", txt_username.getText().toString());
+        extras.putInt("age", 21);
+        data.putExtras(extras);
+
         setResult(RESULT_OK, data);
         //-- close the activity
         finish();

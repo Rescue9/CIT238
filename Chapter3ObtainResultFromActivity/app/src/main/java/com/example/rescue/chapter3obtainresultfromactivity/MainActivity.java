@@ -23,7 +23,16 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == request_Code) {
             if (resultCode == RESULT_OK) {
-                Toast.makeText(this, data.getData().toString(), Toast.LENGTH_SHORT).show();
+                //-- Create a bundle to receive data and Toast it
+
+                Bundle extras = data.getExtras();
+
+                if (extras != null) {
+                    String personName = extras.getString("person", "");
+                    int personAge = extras.getInt("age", 0);
+
+                    Toast.makeText(this, personName + " " + personAge, Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }
