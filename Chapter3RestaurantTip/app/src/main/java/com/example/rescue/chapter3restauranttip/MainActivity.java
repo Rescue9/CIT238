@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
     /*
      setup variables to hide UI
@@ -17,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout totals_amt;
 
     EditText meal_cost;
+
+    DecimalFormat currency_format = new DecimalFormat("$###,###.##");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
          bundle meal cost into intent
          */
         Bundle extras = new Bundle();
-        extras.putString("meal_cost", "$"+meal_cost.getText().toString());
+        extras.putDouble("meal_cost", Double.valueOf(meal_cost.getText().toString()));
 
         intent.putExtras(extras);
 
