@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Chapter3RestaurantTip</string>
+    <string name="txt_enter_meal_cost">Enter the cost of the meal</string>
+    <string name="btn_submit">Submit</string>
+    <string name="edt_zero_dollar_hint">$0.00</string>
+    <string name="txt_calculation_totals">Here are the totals for your visit</string>
+    <string name="txt_meal_cost">Meal cost</string>
+    <string name="txt_tip_amount">Tip amount</string>
+    <string name="txt_total">Total</string>
+    <string name="txt_select_tip">Select the amount of tip you wish to leave</string>
+
+    <string-array name="spn_tip_amounts">
+        <item>10%</item>
+        <item>15%</item>
+        <item>20%</item>
+    </string-array>
+</resources>
