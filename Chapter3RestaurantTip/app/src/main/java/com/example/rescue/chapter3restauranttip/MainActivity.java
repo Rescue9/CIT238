@@ -39,11 +39,10 @@ public class MainActivity extends AppCompatActivity {
          bundle meal cost into intent
          */
         Bundle extras = new Bundle();
-        extras.putString("meal_cost", meal_cost.getText().toString());
+        extras.putString("meal_cost", "$"+meal_cost.getText().toString());
 
         intent.putExtras(extras);
 
         startActivityForResult(intent, 1);
-
     }
 }
