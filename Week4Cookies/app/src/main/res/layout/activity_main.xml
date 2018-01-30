@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.rescue.week4cookies.MainActivity">
+
+    <fragment
+        android:name="com.example.rescue.week4cookies.Fragment1"
+        android:id="@+id/fragment1"
+        android:layout_weight="1"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent" />
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.example.rescue.week4cookies.Fragment2"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+</LinearLayout>
