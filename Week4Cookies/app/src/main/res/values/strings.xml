@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Week4Cookies</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="txt_first_name">First Name</string>
+    <string name="txt_last_name">Last Name</string>
+    <string name="txt_box_count_title">How many boxes do you want?</string>
+    <string name="btn_submit">Submit</string>
+    <string name="btn_clear">Clear</string>
+
+    <string-array name="boxes">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string name="txt_full_name">Name</string>
+    <string name="txt_customer_purchase_total">Customer Total</string>
+    <string name="txt_running_total">Running Total</string>
+</resources>
