@@ -11,6 +11,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText firstName;
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     Button clear;
     TextView output;
     String itemsSelected;
+    int totalBoxesChecked;
+    final double costEachItem = 31.95;
+    DecimalFormat currency = new DecimalFormat("$###,###.00");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,34 +88,35 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        // make sure that at least one checkbox is checked
+        // make sure that at least one checkbox is checked and format string for toys purchased
         if (checkCheckBoxes() == 0){
             Toast.makeText(this, "You must select at least one item with checkbox", Toast.LENGTH_LONG).show();
             output.setText("");
             return;
         } else {
-            int boxesChecked = checkCheckBoxes();
+            totalBoxesChecked = checkCheckBoxes();
+            int boxesStillChecked = checkCheckBoxes();
             if (checkBox1.isChecked()){
                 itemsSelected += checkBox1.getText();
-                if (boxesChecked > 1){
+                if (boxesStillChecked > 1){
                     itemsSelected += " and ";
-                    boxesChecked -= 1;
+                    boxesStillChecked -= 1;
                 }
             }
 
             if (checkBox2.isChecked()){
                 itemsSelected += checkBox2.getText();
-                if (boxesChecked > 1){
+                if (boxesStillChecked > 1){
                     itemsSelected += " and ";
-                    boxesChecked -= 1;
+                    boxesStillChecked -= 1;
                 }
             }
 
             if (checkBox3.isChecked()){
                 itemsSelected += checkBox3.getText();
-                if (boxesChecked > 1){
+                if (boxesStillChecked > 1){
                     itemsSelected += " and ";
-                    boxesChecked -= 1;
+                    boxesStillChecked -= 1;
                 }
             }
 
@@ -119,16 +125,17 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-
+        // make output string for information box
         String outputString = "Receipt for " + wholeName + "\n" +
                 "Purchased on " + date.getSelectedItem().toString() + "\n" +
                 "Last 4 digits of " + creditCard.getSelectedItem().toString() + " credit card: " +
                 last4 + "\n" + "Toys Purchased: " + itemsSelected + "\n" +
-                "Total Paid: " + "WORK THIS OUT";
+                "Total Paid: " + currency.format(totalCost(totalBoxesChecked));
 
         output.setText(outputString);
     }
 
+    // check length of first name
     public boolean firstNameLength() {
         if (firstName.length() < 2) {
             return false;
@@ -137,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // check length of last name
     public boolean lastNameLength() {
         if (lastName.length() < 2) {
             return false;
@@ -145,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // check length of credit card
     public boolean cardNumberLength() {
         if (cardNumber.length() == 16) {
             return true;
@@ -153,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // return total number of checked boxes
     public int checkCheckBoxes() {
         int checked = 0;
         if (checkBox1.isChecked())
@@ -165,5 +175,10 @@ public class MainActivity extends AppCompatActivity {
             checked += 1;
 
         return checked;
+    }
+
+    // return total cost of order
+    public double totalCost(int totalBoxesChecked) {
+        return costEachItem * totalBoxesChecked;
     }
 }
