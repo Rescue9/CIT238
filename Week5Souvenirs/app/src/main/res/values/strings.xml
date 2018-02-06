@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Week5Souvenirs</string>
+    <string name="img_olympic_logo">Olympic Logo</string>
+    <string name="txt_title">Souvenirs Extraordinaire</string>
+    <string name="txt_first_name">First Name</string>
+    <string name="txt_last_name">Last Name</string>
+    <string name="chk_penguin">Penguin</string>
+    <string name="chk_tiger">Tiger</string>
+    <string name="chk_lion">Lion</string>
+    <string name="chk_bear">Bear</string>
+    <string-array name="spn_credit_cards">
+        <item>Visa</item>
+        <item>MasterCard</item>
+        <item>Discover</item>
+    </string-array>
+    <string name="txt_credit_card_title">Credit Card Number</string>
+    <string-array name="spn_date_purchase">
+        <item>Feb 9</item>
+        <item>Feb 10</item>
+        <item>Feb 16</item>
+        <item>Feb 17</item>
+        <item>Feb 23</item>
+        <item>Feb 24</item>
+    </string-array>
+    <string name="btn_submit">Submit</string>
+    <string name="btn_clear">Clear</string>
+</resources>
