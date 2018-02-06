@@ -2,6 +2,7 @@ package com.example.rescue.week5souvenirs;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -55,5 +56,18 @@ public class MainActivity extends AppCompatActivity {
         cardNumber.setText("");
         date.setSelection(0, true);
         output.setText("");
+    }
+
+    public void onClickSubmit(View view) {
+        String wholeName = firstName.getText() + " " + lastName.getText();
+        String last4 = TextUtils.substring(cardNumber.getText().toString(), cardNumber.length()-4, cardNumber.length());
+
+        String outputString = "Receipt for " + wholeName + "\n" +
+                "Purchased on " + date.getSelectedItem().toString() + "\n" +
+                "Last 4 digits of " + creditCard.getSelectedItem().toString() + " credit card: " +
+                last4 + "\n" + "Toys Purchased: " + "WORK THIS OUT" + "\n" +
+                "Total Paid: " + "WORK THIS OUT";
+
+        output.setText(outputString);
     }
 }

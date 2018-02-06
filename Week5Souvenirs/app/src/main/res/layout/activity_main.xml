@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
-        android:layout_height="113dp"
+        android:layout_height="94dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/img_olympic_logo"
         app:layout_constraintTop_toTopOf="parent"
@@ -143,6 +143,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
         android:layout_marginTop="8dp"
+        android:onClick="onClickSubmit"
         android:text="@string/btn_submit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtCardNumber" />
@@ -160,7 +161,7 @@
     <TextView
         android:id="@+id/txtOutput"
         android:layout_width="362dp"
-        android:layout_height="73dp"
+        android:layout_height="102dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
