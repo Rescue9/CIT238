@@ -24,4 +24,5 @@
     </string-array>
     <string name="btn_submit">Submit</string>
     <string name="btn_clear">Clear</string>
+    <string name="edt_enter_card">Enter card number</string>
 </resources>
