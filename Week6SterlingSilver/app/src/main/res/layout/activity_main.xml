@@ -20,4 +20,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <include layout="@layout/point_of_sale" />
+
 </android.support.design.widget.CoordinatorLayout>
