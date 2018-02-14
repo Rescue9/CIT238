@@ -63,7 +63,8 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp" >
 
         <TextView
             android:id="@+id/textView2"
@@ -76,7 +77,8 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp" >
 
         <TextView
             android:id="@+id/textView3"
@@ -115,6 +117,13 @@
             android:layout_weight="1"
             android:text="@string/clear"
             android:onClick="onClickClear"/>
+
     </TableRow>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/emid0530" />
 
 </TableLayout>

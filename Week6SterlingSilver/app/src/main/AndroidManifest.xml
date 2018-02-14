@@ -27,10 +27,26 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rescue.week6sterlingsilver.MainActivity" />
+
             <intent-filter>
                 <action android:name="com.example.rescue.week6sterlingsilver.DisplayReceiptActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".DisplayTotalsActivity"
+            android:label="@string/title_activity_display_totals"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.rescue.week6sterlingsilver.MainActivity" />
+
+            <intent-filter>
+                <action android:name="com.example.rescue.week6sterlingsilver.DisplayTotalsActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

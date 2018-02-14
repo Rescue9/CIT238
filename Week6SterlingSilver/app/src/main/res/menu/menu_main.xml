@@ -3,8 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.rescue.week6sterlingsilver.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/display_receipt"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/action_receipt"
+        android:icon="@drawable/receipt"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/display_totals"
+        android:orderInCategory="100"
+        android:title="@string/action_totals"
+        android:icon="@drawable/totals"
         app:showAsAction="ifRoom" />
 </menu>

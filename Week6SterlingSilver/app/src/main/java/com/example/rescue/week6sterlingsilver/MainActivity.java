@@ -1,5 +1,6 @@
 package com.example.rescue.week6sterlingsilver;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -18,7 +19,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    /* declare objects */
+    /* declare and instantiate objects */
     TextView date;
     EditText firstName;
     EditText lastName;
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     EditText cardNumber;
 
     double itemPrice = 45.00;
+    int totalCustomers = 0;
+
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +73,12 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.display_receipt) {
+            startActivity(new Intent("com.example.rescue.week6sterlingsilver.DisplayReceiptActivity"));
+        }
+
+        if (id == R.id.display_totals) {
+            startActivity(new Intent("com.example.rescue.week6sterlingsilver.DisplayTotalsActivity"));
         }
 
         return super.onOptionsItemSelected(item);
@@ -98,6 +106,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         calculatePurchase(Integer.valueOf(itemsPurchased.getSelectedItem().toString()));
+        Log.d("calculatePurchase()", String.valueOf(
+                calculatePurchase(Integer.valueOf(itemsPurchased.getSelectedItem().toString()))));
+
+        totalCustomers += 1;
+        Log.d("Total Customers", String.valueOf(totalCustomers));
 
     }
 
@@ -175,7 +188,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Total Price", String.valueOf(totalPrice));
                 break;
         }
-        Log.d("calculatePurchase()", String.valueOf(totalPrice));
         return totalPrice;
     }
 
