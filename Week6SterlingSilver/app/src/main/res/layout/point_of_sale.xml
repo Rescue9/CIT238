@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,25 +8,113 @@
     tools:context="com.example.rescue.week6sterlingsilver.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <Button
-        android:id="@+id/button"
+    <TableRow
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="onClick"/>
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="date"
+            android:textAlignment="center"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp">
+
+        <EditText
+            android:id="@+id/edtFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/first_name" />
+
+        <EditText
+            android:id="@+id/edtLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/last_name" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp" >
+
+        <TextView
+            android:id="@+id/textView"
+            android:text="@string/items_purchased_label" />
+
+        <Spinner
+            android:id="@+id/spnNumberItems"
+            android:entries="@array/items_purchased" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:text="@string/groupon_code_label" />
+
+        <Spinner
+            android:id="@+id/spnGrouponCode"
+            android:entries="@array/groupon_code"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/textView3"
+            android:text="@string/card_type_label" />
+
+        <Spinner
+            android:id="@+id/spnCardType"
+            android:entries="@array/card_type"/>
+    </TableRow>
 
     <EditText
-        android:id="@+id/edittext"
-        android:layout_width="wrap_content"
+        android:id="@+id/edtCardNumber"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Type some information..."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/button" />
+        android:layout_marginTop="16dp"
+        android:inputType="number"
+        android:hint="@string/card_number_label"/>
 
-</android.support.constraint.ConstraintLayout>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp" >
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/submit"
+            android:onClick="onClickSubmit"/>
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/clear"
+            android:onClick="onClickClear"/>
+    </TableRow>
+
+</TableLayout>
