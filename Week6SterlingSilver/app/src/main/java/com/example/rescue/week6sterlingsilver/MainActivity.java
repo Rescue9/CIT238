@@ -30,8 +30,16 @@ public class MainActivity extends AppCompatActivity {
 
     double itemPrice = 45.00;
     int totalCustomers = 0;
+    double subtotal = 0.00;
+    double tax = 0.00;
+    double total = 0.00;
 
-    Bundle bundle;
+    String wholeName;
+    String last4;
+
+    Bundle bundle = new Bundle();
+
+    Boolean submitted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,43 +82,63 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.display_receipt) {
-            startActivity(new Intent("com.example.rescue.week6sterlingsilver.DisplayReceiptActivity"));
+            if (submitted == true) {
+                Intent intent = new Intent(this, DisplayReceiptActivity.class);
+                bundleExtras();
+                intent.putExtras(bundle);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this,
+                        "You must click Submit before a receipt can be generated",
+                        Toast.LENGTH_LONG).show();
+            }
         }
 
         if (id == R.id.display_totals) {
-            startActivity(new Intent("com.example.rescue.week6sterlingsilver.DisplayTotalsActivity"));
+            Intent intent = new Intent(this, DisplayTotalsActivity.class);
+            bundleExtras();
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
     }
 
     public void onClickSubmit(View view) {
-        String wholeName;
-        String last4;
-
 
         // make sure the first and last name have more than 1 character
         if (firstNameLength() && lastNameLength()) {
             wholeName = firstName.getText() + " " + lastName.getText();
         } else {
-            Toast.makeText(this, "Your First Name and Last Name must be longer than 1 character", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,
+                    "Your First Name and Last Name must be longer than 1 character",
+                    Toast.LENGTH_LONG).show();
             return;
         }
 
         // make sure the card number contains exactly 16 digits
         if (cardNumberLength()) {
-            last4 = TextUtils.substring(cardNumber.getText().toString(), cardNumber.length() - 4, cardNumber.length());
+            last4 = TextUtils.substring(cardNumber.getText().toString(),
+                    cardNumber.length() - 4, cardNumber.length());
         } else {
-            Toast.makeText(this, "Your Card Number must be exactly 16 numbers in length", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,
+                    "Your Card Number must be exactly 16 numbers in length",
+                    Toast.LENGTH_LONG).show();
             return;
         }
 
-        calculatePurchase(Integer.valueOf(itemsPurchased.getSelectedItem().toString()));
-        Log.d("calculatePurchase()", String.valueOf(
-                calculatePurchase(Integer.valueOf(itemsPurchased.getSelectedItem().toString()))));
+        subtotal = calculatePurchase(Integer.valueOf(itemsPurchased.getSelectedItem().toString()));
+        tax = calculateTax(subtotal);
+        total = subtotal + tax;
+
+        Log.d("subtotal", String.valueOf(subtotal));
+        Log.d("tax", String.valueOf(tax));
+        Log.d("total", String.valueOf(total));
 
         totalCustomers += 1;
         Log.d("Total Customers", String.valueOf(totalCustomers));
+
+        submitted = true;
 
     }
 
@@ -189,6 +217,25 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return totalPrice;
+    }
+
+    public Bundle bundleExtras() {
+        bundle.putString("datePurchased", date.getText().toString());
+        bundle.putString("wholeName", wholeName);
+        bundle.putString("cardType", cardType.getSelectedItem().toString());
+        bundle.putString("last4", last4);
+        bundle.putInt("itemQuantity", Integer.valueOf(itemsPurchased.getSelectedItem().toString()));
+        bundle.putString("grouponCode", grouponCode.getSelectedItem().toString());
+        bundle.putDouble("subtotal", subtotal);
+        bundle.putDouble("tax", tax);
+        bundle.putDouble("total", total);
+
+        return bundle;
+    }
+
+    public double calculateTax(Double subtotal) {
+        Double tax = subtotal * 0.06;
+        return tax;
     }
 
 }
