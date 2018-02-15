@@ -31,4 +31,17 @@
     <string name="submit">Submit</string>
     <string name="clear">Clear</string>
     <string name="title_activity_display_totals">DisplayTotalsActivity</string>
+    <string name="receipt_label">Receipt</string>
+    <string name="date_of_purchase_label">Date of Purchase:</string>
+    <string name="customer_name_label">Customer Name</string>
+    <string name="quantity_purchased_label">Quantity Purchased:</string>
+    <string name="card_type_placeholder">Visa</string>
+    <string name="last_4_placeholder">1234</string>
+    <string name="groupon_savings_code">Groupon Savings Code:</string>
+    <string name="savings_code_placeholder">Sterling2018</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="zero_placeholder">$0.00</string>
+    <string name="tax">Tax 6%:</string>
+    <string name="total">Total:</string>
+    <string name="thank_you">Thank you for shopping with Sterling Silver!</string>
 </resources>
