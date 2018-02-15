@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -27,12 +28,17 @@ public class MainActivity extends AppCompatActivity {
     Spinner cardType;
     Spinner grouponCode;
     EditText cardNumber;
+    TextView custTotal;
 
     double itemPrice = 45.00;
     int totalCustomers = 0;
     double subtotal = 0.00;
     double tax = 0.00;
     double total = 0.00;
+    double dailyTotal = 0.00;
+
+    DecimalFormat currency = new DecimalFormat("$###,###.00");
+
 
     String wholeName;
     String last4;
@@ -55,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         cardType = (Spinner) findViewById(R.id.spnCardType);
         grouponCode = (Spinner) findViewById(R.id.spnGrouponCode);
         cardNumber = (EditText) findViewById(R.id.edtCardNumber);
+        custTotal = (TextView) findViewById(R.id.txtCustTotal);
 
 
         /* automatically populate date textview with current date */
@@ -130,6 +137,9 @@ public class MainActivity extends AppCompatActivity {
         subtotal = calculatePurchase(Integer.valueOf(itemsPurchased.getSelectedItem().toString()));
         tax = calculateTax(subtotal);
         total = subtotal + tax;
+        dailyTotal += total;
+
+        custTotal.setText(currency.format(total));
 
         Log.d("subtotal", String.valueOf(subtotal));
         Log.d("tax", String.valueOf(tax));
@@ -149,6 +159,9 @@ public class MainActivity extends AppCompatActivity {
         cardType.setSelection(0, true);
         grouponCode.setSelection(0, true);
         cardNumber.setText("");
+        custTotal.setText("$0.00");
+
+        firstName.requestFocus();
     }
 
     public boolean firstNameLength() {

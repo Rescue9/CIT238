@@ -53,7 +53,7 @@ public class DisplayReceiptActivity extends AppCompatActivity {
         onBackPressed();
         return true;
     }
-    
+
     public void instantiateObjects() {
         /* instantiate objects */
         bundle = getIntent().getExtras();
