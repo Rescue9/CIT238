@@ -34,6 +34,10 @@ public class DisplayReceiptActivity extends AppCompatActivity {
 
     DecimalFormat currency = new DecimalFormat("$###,###.00");
 
+    /**
+     * Creates the activity, and sets various ActionBar options.
+     * @param savedInstanceState the bundle containing the previously saved state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,12 +52,22 @@ public class DisplayReceiptActivity extends AppCompatActivity {
         createReceipt();
     }
 
+    /**
+     * This method overrides the standard actions performed when the up/home button on the
+     * ActionBar is pressed. The standard action is to go home and clear all the data that was
+     * input into the UI. This method changes that action to mimic the back button being pressed,
+     * which preserves the UI input.
+     * @return
+     */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
 
+    /**
+     * This method instantiates the bundle object and assigns various bundled data to variables.
+     */
     public void instantiateObjects() {
         /* instantiate objects */
         bundle = getIntent().getExtras();
@@ -79,6 +93,9 @@ public class DisplayReceiptActivity extends AppCompatActivity {
         txtTotal = (TextView) findViewById(R.id.txtTotal);
     }
 
+    /**
+     * This method assigns various string variables to the UI objects for display.
+     */
     public void createReceipt() {
         txtDate.setText(date);
         txtCustomerName.setText(wholeName);

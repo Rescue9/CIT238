@@ -1,5 +1,14 @@
 package com.example.rescue.week6sterlingsilver;
 
+/*
+    Name: Andrew Buskov
+    Class: CIT 238
+    Date: 0/15/2018
+    Purpose: To create an application that tracks sales of sterling silver items.
+        This app should display a receipt to the current customer, as well as
+        track the daily customer total and daily dollar total sales.
+ */
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -47,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
 
     Boolean submitted = false;
 
+    /**
+     * Creates the layout, assigns objects to various variables, and starts the activity
+     * for user interaction
+     * @param savedInstanceState the bundle containing the previously saved state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         custTotal = (TextView) findViewById(R.id.txtCustTotal);
 
 
-        /* automatically populate date textview with current date */
+        /* automatically populate date TextView with current date */
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Calendar calendar = Calendar.getInstance();
 
@@ -73,6 +87,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Generates the menu on the action bar.
+     * @param menu the menu object that was pressed
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -80,6 +99,12 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Handles click events for various menu items. Some error checking is provided as well
+     * so that intents don't start unless conditions are met.
+     * @param item the specific menu item clicked
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -89,14 +114,14 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.display_receipt) {
-            if (submitted == true) {
+            if (submitted == true && !cardNumber.getText().toString().equals("")) {
                 Intent intent = new Intent(this, DisplayReceiptActivity.class);
                 bundleExtras();
                 intent.putExtras(bundle);
                 startActivity(intent);
             } else {
                 Toast.makeText(this,
-                        "You must click Submit before a receipt can be generated",
+                        "You must click Submit before a new receipt can be generated",
                         Toast.LENGTH_LONG).show();
             }
         }
@@ -111,6 +136,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * This method is called when the Submit button in the main activity layout is clicked.
+     * Error checking is implemented to check various EditText fields for content.
+     * @param view the button object
+     */
     public void onClickSubmit(View view) {
 
         // make sure the first and last name have more than 1 character
@@ -144,6 +174,8 @@ public class MainActivity extends AppCompatActivity {
         Log.d("subtotal", String.valueOf(subtotal));
         Log.d("tax", String.valueOf(tax));
         Log.d("total", String.valueOf(total));
+        Log.d("dailyTotal", String.valueOf(dailyTotal));
+
 
         totalCustomers += 1;
         Log.d("Total Customers", String.valueOf(totalCustomers));
@@ -152,6 +184,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This method is called when the Clear button in the main activity layout is clicked. All
+     * EditText fields are cleared and spinners are returned to their default values.
+     * @param view
+     */
     public void onClickClear(View view) {
         firstName.setText("");
         lastName.setText("");
@@ -164,6 +201,10 @@ public class MainActivity extends AppCompatActivity {
         firstName.requestFocus();
     }
 
+    /**
+     * Ensures that the first name has a character value greater than 1.
+     * @return
+     */
     public boolean firstNameLength() {
         if (firstName.length() < 2) {
             return false;
@@ -172,6 +213,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Ensures that the last name has a character value greater than 1.
+     * @return
+     */
     public boolean lastNameLength() {
         if (lastName.length() < 2) {
             return false;
@@ -180,6 +225,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Ensures that the credit card number is exactly 16 characters in length.
+     * @return
+     */
     public boolean cardNumberLength() {
         if (cardNumber.length() == 16) {
             return true;
@@ -188,6 +237,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method serves to calculate the purchase price of various items based upon the input
+     * in the UI fields. Error checking is implemented to verify that the correct number of items
+     * is selected if various Groupon codes are used.
+     * @param numItemsPurchased the number of items listed in the UI spinner
+     * @return the total price as calculated
+     */
     public double calculatePurchase(int numItemsPurchased){
         int discountItems;
         double grouponItemPrice;
@@ -232,6 +288,10 @@ public class MainActivity extends AppCompatActivity {
         return totalPrice;
     }
 
+    /**
+     * Creates a bundle for use in passing extras to the various intents.
+     * @return the bundle object
+     */
     public Bundle bundleExtras() {
         bundle.putString("datePurchased", date.getText().toString());
         bundle.putString("wholeName", wholeName);
@@ -242,10 +302,17 @@ public class MainActivity extends AppCompatActivity {
         bundle.putDouble("subtotal", subtotal);
         bundle.putDouble("tax", tax);
         bundle.putDouble("total", total);
+        bundle.putInt("customersServed", totalCustomers);
+        bundle.putDouble("dailySalesTotal", dailyTotal);
 
         return bundle;
     }
 
+    /**
+     * Calculates taxes based upon the subtotal for the purchase.
+     * @param subtotal the total cost of the items before tax is added
+     * @return the amount of tax based upon 6% of the subtotal
+     */
     public double calculateTax(Double subtotal) {
         Double tax = subtotal * 0.06;
         return tax;

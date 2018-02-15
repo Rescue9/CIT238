@@ -1,14 +1,37 @@
 package com.example.rescue.week6sterlingsilver;
 
+/*
+    Name: Andrew Buskov
+    Class: CIT 238
+    Date: 0/15/2018
+    Purpose: To create an application that tracks sales of sterling silver items.
+        This app should display a receipt to the current customer, as well as
+        track the daily customer total and daily dollar total sales.
+ */
+
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.widget.TextView;
+
+import java.text.DecimalFormat;
 
 public class DisplayTotalsActivity extends AppCompatActivity {
 
+    /* declare objects */
+    Bundle bundle;
+
+    TextView customersServed;
+    TextView dailySalesTotal;
+
+    /* create a format for currency strings */
+    DecimalFormat currency = new DecimalFormat("$###,###.00");
+
+    /**
+     * Creates the activity, sets various ActionBar options, instantiates the bundle object, and
+     * sets view object strings to display data.
+     * @param savedInstanceState the bundle containing the previously saved state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,15 +39,29 @@ public class DisplayTotalsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        bundle = getIntent().getExtras();
+
+        customersServed = (TextView) findViewById(R.id.txtCustomersServed);
+        dailySalesTotal = (TextView) findViewById(R.id.txtDailySalesTotal);
+
+        customersServed.setText(String.valueOf(bundle.getInt("customersServed")));
+        dailySalesTotal.setText(currency.format(bundle.getDouble("dailySalesTotal")));
+
     }
 
+    /**
+     * This method overrides the standard actions performed when the up/home button on the
+     * ActionBar is pressed. The standard action is to go home and clear all the data that was
+     * input into the UI. This method changes that action to mimic the back button being pressed,
+     * which preserves the UI input.
+     * @return
+     */
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }

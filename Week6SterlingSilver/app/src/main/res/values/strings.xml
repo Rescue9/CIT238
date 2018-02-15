@@ -47,4 +47,8 @@
     <string name="tax">Tax 6%:</string>
     <string name="total">Total:</string>
     <string name="thank_you">Thank you for shopping with Sterling Silver!</string>
+    <string name="daily_totals_title">Daily Totals</string>
+    <string name="customers_served">Customers Served</string>
+    <string name="daily_sales_total">Daily Sales Total</string>
+
 </resources>
