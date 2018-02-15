@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Week6SterlingSilver</string>
+    <string name="action_receipt">Daily Receipt</string>
+    <string name="action_totals">Daily Totals</string>
+    <string name="action_back">Back</string>
+    <string name="title_activity_display_receipt">DisplayReceiptActivity</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="items_purchased_label">Items Purchased</string>
+    <string name="groupon_code_label">Groupon Code</string>
+    <string name="card_type_label">Card Type</string>
+    <string name="card_number_label">Card Number</string>
+    <string-array name="items_purchased">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="card_type">
+        <item>Visa</item>
+        <item>MasterCard</item>
+        <item>Discover</item>
+        <item>American Express</item>
+    </string-array>
+    <string-array name="groupon_code">
+        <item>None</item>
+        <item>Sterling2018</item>
+        <item>Silver2018</item>
+    </string-array>
+    <string name="submit">Submit</string>
+    <string name="clear">Clear</string>
+    <string name="title_activity_display_totals">DisplayTotalsActivity</string>
+    <string name="receipt_label">Receipt</string>
+    <string name="date_of_purchase_label">Date of Purchase:</string>
+    <string name="date_placeholder">01/01/2018</string>
+    <string name="customer_name_label">Customer Name</string>
+    <string name="quantity_purchased_label">Quantity Purchased:</string>
+    <string name="zero_placeholder">0</string>
+    <string name="card_type_placeholder">Card</string>
+    <string name="last_4_placeholder">0000</string>
+    <string name="groupon_savings_code">Groupon Savings Code:</string>
+    <string name="savings_code_placeholder">None</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="zero_dollar_placeholder">$0.00</string>
+    <string name="tax">Tax 6%:</string>
+    <string name="total">Total:</string>
+    <string name="thank_you">Thank you for shopping with Sterling Silver!</string>
+    <string name="daily_totals_title">Daily Totals</string>
+    <string name="customers_served">Customers Served</string>
+    <string name="daily_sales_total">Daily Sales Total</string>
+
+</resources>
