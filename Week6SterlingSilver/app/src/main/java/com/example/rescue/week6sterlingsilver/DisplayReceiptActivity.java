@@ -1,11 +1,21 @@
 package com.example.rescue.week6sterlingsilver;
 
+/*
+    Name: Andrew Buskov
+    Class: CIT 238
+    Date: 0/15/2018
+    Purpose: To create an application that tracks sales of sterling silver items.
+        This app should display a receipt to the current customer, as well as
+        track the daily customer total and daily dollar total sales.
+ */
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class DisplayReceiptActivity extends AppCompatActivity {
 
@@ -32,7 +42,7 @@ public class DisplayReceiptActivity extends AppCompatActivity {
     TextView txtTax;
     TextView txtTotal;
 
-    DecimalFormat currency = new DecimalFormat("$###,###.00");
+    NumberFormat currency = NumberFormat.getCurrencyInstance(Locale.US);
 
     /**
      * Creates the activity, and sets various ActionBar options.

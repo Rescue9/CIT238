@@ -22,9 +22,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     double total = 0.00;
     double dailyTotal = 0.00;
 
-    DecimalFormat currency = new DecimalFormat("$###,###.00");
+    NumberFormat currency = NumberFormat.getCurrencyInstance(Locale.US);
 
 
     String wholeName;
@@ -78,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         /* automatically populate date TextView with current date */
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy",
+                        Locale.getDefault());
         Calendar calendar = Calendar.getInstance();
 
         date = (TextView) findViewById(R.id.date);
