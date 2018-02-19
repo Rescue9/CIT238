@@ -53,7 +53,7 @@
         android:layout_marginTop="16dp" >
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/txtItemsPurchasedLabel"
             android:text="@string/items_purchased_label" />
 
         <Spinner
@@ -67,7 +67,7 @@
         android:layout_marginTop="16dp" >
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/txtGrouponCodesLabel"
             android:text="@string/groupon_code_label" />
 
         <Spinner
@@ -81,7 +81,7 @@
         android:layout_marginTop="16dp" >
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/txtCardTypeLabel"
             android:text="@string/card_type_label" />
 
         <Spinner
@@ -127,7 +127,7 @@
         android:layout_marginTop="16dp">
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/txtTotalMainLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/total" />
@@ -140,7 +140,7 @@
     </TableRow>
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgBracelet"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:srcCompat="@drawable/emid0530" />

@@ -50,5 +50,9 @@
     <string name="daily_totals_title">Daily Totals</string>
     <string name="customers_served">Customers Served</string>
     <string name="daily_sales_total">Daily Sales Total</string>
+    <string name="submit_before_receipt">You must click Submit before a new receipt can be generated</string>
+    <string name="name_character_length">Your First Name and Last Name must be longer than 1 character</string>
+    <string name="card_number_length">Your Card Number must be exactly 16 numbers in length</string>
+    <string name="two_item_groupon">You must select two or more items when using this Groupon code</string>
 
 </resources>

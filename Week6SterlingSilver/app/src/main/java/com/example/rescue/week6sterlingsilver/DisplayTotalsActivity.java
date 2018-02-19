@@ -14,7 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class DisplayTotalsActivity extends AppCompatActivity {
 
@@ -25,7 +26,7 @@ public class DisplayTotalsActivity extends AppCompatActivity {
     TextView dailySalesTotal;
 
     /* create a format for currency strings */
-    DecimalFormat currency = new DecimalFormat("$###,###.00");
+    NumberFormat currency = NumberFormat.getCurrencyInstance(Locale.US);
 
     /**
      * Creates the activity, sets various ActionBar options, instantiates the bundle object, and
