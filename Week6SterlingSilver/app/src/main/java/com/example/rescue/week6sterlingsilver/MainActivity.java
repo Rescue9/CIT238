@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -120,8 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtras(bundle);
                 startActivity(intent);
             } else {
-                Toast.makeText(this,
-                        "You must click Submit before a new receipt can be generated",
+                Toast.makeText(this, R.string.submit_before_receipt,
                         Toast.LENGTH_LONG).show();
             }
         }
@@ -147,8 +145,7 @@ public class MainActivity extends AppCompatActivity {
         if (firstNameLength() && lastNameLength()) {
             wholeName = firstName.getText() + " " + lastName.getText();
         } else {
-            Toast.makeText(this,
-                    "Your First Name and Last Name must be longer than 1 character",
+            Toast.makeText(this, R.string.name_character_length,
                     Toast.LENGTH_LONG).show();
             return;
         }
@@ -158,8 +155,7 @@ public class MainActivity extends AppCompatActivity {
             last4 = TextUtils.substring(cardNumber.getText().toString(),
                     cardNumber.length() - 4, cardNumber.length());
         } else {
-            Toast.makeText(this,
-                    "Your Card Number must be exactly 16 numbers in length",
+            Toast.makeText(this, R.string.card_number_length,
                     Toast.LENGTH_LONG).show();
             return;
         }
@@ -171,14 +167,14 @@ public class MainActivity extends AppCompatActivity {
 
         custTotal.setText(currency.format(total));
 
-        Log.d("subtotal", String.valueOf(subtotal));
-        Log.d("tax", String.valueOf(tax));
-        Log.d("total", String.valueOf(total));
-        Log.d("dailyTotal", String.valueOf(dailyTotal));
+        //Log.d("subtotal", String.valueOf(subtotal));
+        //Log.d("tax", String.valueOf(tax));
+        //Log.d("total", String.valueOf(total));
+        //Log.d("dailyTotal", String.valueOf(dailyTotal));
 
 
         totalCustomers += 1;
-        Log.d("Total Customers", String.valueOf(totalCustomers));
+        //Log.d("Total Customers", String.valueOf(totalCustomers));
 
         submitted = true;
 
@@ -196,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
         cardType.setSelection(0, true);
         grouponCode.setSelection(0, true);
         cardNumber.setText("");
-        custTotal.setText("$0.00");
+        custTotal.setText(R.string.zero_dollar_placeholder);
 
         firstName.requestFocus();
     }
@@ -252,8 +248,7 @@ public class MainActivity extends AppCompatActivity {
 
         /* perform check to make sure that 2 items are selected if groupon code is Silver2018 */
         if (grouponCode.getSelectedItemPosition() == 2 && numItemsPurchased < 2){
-            Toast.makeText(this,
-                    "You must select two or more items when using this Groupon code",
+            Toast.makeText(this, R.string.two_item_groupon,
                     Toast.LENGTH_LONG).show();
             return 0;
         }
@@ -262,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
         /* calculate the total based upon the groupon code and number of items purchased */
         switch (grouponCode.getSelectedItemPosition()) {
             case 0: totalPrice = itemPrice * numItemsPurchased;
-                Log.d("Total Price", String.valueOf(totalPrice));
+                //Log.d("Total Price", String.valueOf(totalPrice));
                 break;
 
             case 1: discountItems = 1;
@@ -270,9 +265,9 @@ public class MainActivity extends AppCompatActivity {
                     grouponItemPrice = 30.00;
                     regularPrice = itemPrice * numItemsPurchased;
                     totalPrice = grouponItemPrice + regularPrice;
-                Log.d("Groupon Item Price", String.valueOf(grouponItemPrice));
-                Log.d("Regular Price", String.valueOf(regularPrice));
-                Log.d("Total Price", String.valueOf(totalPrice));
+                //Log.d("Groupon Item Price", String.valueOf(grouponItemPrice));
+                //Log.d("Regular Price", String.valueOf(regularPrice));
+                //Log.d("Total Price", String.valueOf(totalPrice));
                 break;
 
             case 2: discountItems = 2;
@@ -280,9 +275,9 @@ public class MainActivity extends AppCompatActivity {
                     grouponItemPrice = 55.00;
                     regularPrice = itemPrice * numItemsPurchased;
                 totalPrice = grouponItemPrice + regularPrice;
-                Log.d("Groupon Item Price", String.valueOf(grouponItemPrice));
-                Log.d("Regular Price", String.valueOf(regularPrice));
-                Log.d("Total Price", String.valueOf(totalPrice));
+                //Log.d("Groupon Item Price", String.valueOf(grouponItemPrice));
+                //Log.d("Regular Price", String.valueOf(regularPrice));
+                //Log.d("Total Price", String.valueOf(totalPrice));
                 break;
         }
         return totalPrice;
@@ -293,6 +288,7 @@ public class MainActivity extends AppCompatActivity {
      * @return the bundle object
      */
     public Bundle bundleExtras() {
+        /* Since these are non-translatable, I didn't put these in strings.xml */
         bundle.putString("datePurchased", date.getText().toString());
         bundle.putString("wholeName", wholeName);
         bundle.putString("cardType", cardType.getSelectedItem().toString());
