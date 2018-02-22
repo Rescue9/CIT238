@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         progress = 0;
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
+        progressBar.setMax(20);
 //---do some work in background thread---
         new Thread(new Runnable()
         {
@@ -29,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
                 while (progressStatus < 10)
                 {
                     progressStatus = doSomeWork();
+//---Update the progress bar---
+                    handler.post(new Runnable()
+                    {
+                        public void run() {
+                            progressBar.setProgress(progressStatus);
+                        }
+                    });
                 }
 //---hides the progress bar---
                 handler.post(new Runnable()
