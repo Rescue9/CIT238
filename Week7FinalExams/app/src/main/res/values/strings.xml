@@ -34,5 +34,7 @@
     <string name="clear">Clear</string>
     <string name="name_length">Your First Name and Last Name must be longer than 1 character</string>
     <string name="valid_email">You must input a valid email address</string>
+    <string name="valid_location">You must input a valid location</string>
+    <string name="valid_student_id">You must input a valid student id (8 digits in length)</string>
 
 </resources>

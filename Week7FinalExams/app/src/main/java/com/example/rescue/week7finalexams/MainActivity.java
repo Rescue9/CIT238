@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    String[] locationArray;
     String wholeName;
     EditText firstName;
     EditText lastName;
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         studentId = (EditText) findViewById(R.id.edtStudentId);
         courses = (Spinner) findViewById(R.id.spnCourseList);
         confirmEmail = (CheckBox) findViewById(R.id.chkEmailConfirm);
+        locationArray = getResources().getStringArray(R.array.test_location);
 
         /* setup the autocompletetextview */
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -70,6 +73,17 @@ public class MainActivity extends AppCompatActivity {
         if (!isValidEmail(email.getText().toString())) {
             return;
         }
+
+        /* verify location is valid */
+        if (!isValidLocation(locations.getText().toString())) {
+            return;
+        }
+
+        /* verify student id is 8 digits long */
+        if (!isValidStudentId(studentId.getText().toString())) {
+            return;
+        }
+
     }
 
     public void onClickClear(View view) {
@@ -109,6 +123,27 @@ public class MainActivity extends AppCompatActivity {
                     R.string.valid_email), Toast.LENGTH_LONG).show();
             return false;
         }
+    }
+
+    public boolean isValidLocation(CharSequence location) {
+        for (int l=0; l<locationArray.length; l++) {
+            if (location.equals(locationArray[l].toString())) {
+                return true;
+            }
+        }
+        Toast.makeText(this, getResources().getString(
+                R.string.valid_location), Toast.LENGTH_LONG).show();
+        return false;
+
+    }
+
+    public boolean isValidStudentId(String studentIdNum) {
+        Log.d("length", String.valueOf(studentIdNum.length()));
+        if (studentIdNum.length() != 8) {
+            Toast.makeText(this, getResources().getString(
+                    R.string.valid_student_id), Toast.LENGTH_LONG).show();
+            return false;
+        } return true;
     }
 
 }
