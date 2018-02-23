@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Week7FinalExams</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="student_id">Student ID</string>
 </resources>
