@@ -4,6 +4,7 @@
     <string name="last_name">Last Name</string>
     <string name="email_address">Email Address</string>
     <string name="student_id">Student ID</string>
+    <string name="pick_course">Pick a course</string>
     <string-array name="course_list">
         <item>ACT 101 - Fundamentals of Accounting</item>
         <item>BIO 112 - Introduction to Biology</item>
@@ -16,6 +17,7 @@
         <item>GEO 172 - Human Geography</item>
         <item>HIS 271 - Medieval Europe</item>
     </string-array>
+    <string name="enter_location">Enter a Location</string>
     <string-array name="test_location">
         <item>Newtown</item>
         <item>Cooper</item>

@@ -67,8 +67,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtStudentId" />
 
-    <Spinner
-        android:id="@+id/spnLocationList"
+    <AutoCompleteTextView
+        android:id="@+id/actLocationList"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -87,7 +87,7 @@
         app:layout_constraintEnd_toStartOf="@+id/btnTime"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spnLocationList" />
+        app:layout_constraintTop_toBottomOf="@+id/actLocationList" />
 
     <Button
         android:id="@+id/btnTime"
@@ -99,7 +99,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnDate"
-        app:layout_constraintTop_toBottomOf="@+id/spnLocationList" />
+        app:layout_constraintTop_toBottomOf="@+id/actLocationList" />
 
     <TextView
         android:id="@+id/txtEmailConfirm"
