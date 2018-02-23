@@ -101,27 +101,15 @@
         app:layout_constraintStart_toEndOf="@+id/btnDate"
         app:layout_constraintTop_toBottomOf="@+id/actLocationList" />
 
-    <TextView
-        android:id="@+id/txtEmailConfirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/email_checkbox_label"
-        app:layout_constraintEnd_toStartOf="@+id/chkEmailConfirm"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDate" />
-
     <CheckBox
         android:id="@+id/chkEmailConfirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:text="@string/email_checkbox_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/txtEmailConfirm"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnDate" />
 
     <Button
@@ -129,24 +117,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
+        android:onClick="onClickSubmit"
         android:text="@string/submit"
         app:layout_constraintEnd_toStartOf="@+id/btnClear"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmailConfirm" />
+        app:layout_constraintTop_toBottomOf="@+id/chkEmailConfirm" />
 
     <Button
         android:id="@+id/btnClear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
+        android:onClick="onClickClear"
         android:text="@string/clear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnSubmit"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmailConfirm" />
+        app:layout_constraintTop_toBottomOf="@+id/chkEmailConfirm" />
 
     <ImageView
         android:id="@+id/imgFinalExam"
