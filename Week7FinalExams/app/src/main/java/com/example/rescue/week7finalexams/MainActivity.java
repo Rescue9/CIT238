@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.ic_action_examination);
 
         /* setup the listview */
-        
+
 
         /* setup the autocompletetextview */
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,

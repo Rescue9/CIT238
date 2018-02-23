@@ -30,5 +30,7 @@
     <string name="date_button">Choose Date</string>
     <string name="time_button">Choose Time</string>
     <string name="email_checkbox_label">Confirmation Email?</string>
+    <string name="submit">Submit</string>
+    <string name="clear">Clear</string>
 
 </resources>
