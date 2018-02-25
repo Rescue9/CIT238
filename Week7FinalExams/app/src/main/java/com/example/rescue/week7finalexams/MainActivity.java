@@ -228,6 +228,7 @@ public class MainActivity extends AppCompatActivity {
         courses.setSelection(0);
         locations.setText("");
         confirmEmail.setChecked(false);
+        courses.setItemChecked(-1, true);
 
     }
 
