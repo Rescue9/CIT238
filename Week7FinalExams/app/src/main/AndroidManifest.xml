@@ -12,7 +12,8 @@
         <activity
             android:name=".MainActivity"
             android:label="Week7FinalExams"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -11,13 +11,15 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.ListView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -26,12 +28,13 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     String[] locationArray;
+    String[] courseArray;
     String wholeName;
     EditText firstName;
     EditText lastName;
     EditText email;
     EditText studentId;
-    Spinner courses;
+    ListView courses;
     AutoCompleteTextView locations;
     CheckBox confirmEmail;
     Button dateButton;
@@ -47,32 +50,44 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         /* setup the actionbar */
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setLogo(R.drawable.ic_action_examination);
 
         /* setup the objects */
-        firstName = (EditText) findViewById(R.id.edtFirstName);
-        lastName = (EditText) findViewById(R.id.edtLastName);
-        email = (EditText) findViewById(R.id.edtEmail);
-        studentId = (EditText) findViewById(R.id.edtStudentId);
-        courses = (Spinner) findViewById(R.id.spnCourseList);
-        confirmEmail = (CheckBox) findViewById(R.id.chkEmailConfirm);
+        firstName = findViewById(R.id.edtFirstName);
+        lastName = findViewById(R.id.edtLastName);
+        email = findViewById(R.id.edtEmail);
+        studentId = findViewById(R.id.edtStudentId);
+        courses = findViewById(R.id.lstCourseList);
+        confirmEmail = findViewById(R.id.chkEmailConfirm);
         locationArray = getResources().getStringArray(R.array.test_location);
-        timeButton = (Button) findViewById(R.id.btnTime);
-        dateButton = (Button) findViewById(R.id.btnDate);
+        timeButton = findViewById(R.id.btnTime);
+        dateButton = findViewById(R.id.btnDate);
+
+        /* setup the courses listview */
+        courseArray = getResources().getStringArray(R.array.course_list);
+        courses.setAdapter(new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_single_choice, courseArray));
+        courses.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "You have selected " + courseArray[position],
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
 
         /* setup the autocompletetextview */
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_dropdown_item_1line,
+        ArrayAdapter<String> locationAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_selectable_list_item,
                 getResources().getStringArray(R.array.test_location));
 
-        locations = (AutoCompleteTextView) findViewById(
+        locations = findViewById(
                 R.id.actLocationList);
 
         locations.setHint(getResources().getString(R.string.enter_location));
         locations.setThreshold(1);
-        locations.setAdapter(adapter);
+        locations.setAdapter(locationAdapter);
 
     }
 
@@ -210,19 +225,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean firstNameLength() {
-        if (firstName.length() < 2) {
-            return false;
-        } else {
-            return true;
-        }
+        return firstName.length() >= 2;
     }
 
     public boolean lastNameLength() {
-        if (lastName.length() < 2) {
-            return false;
-        } else {
-            return true;
-        }
+        return lastName.length() >= 2;
     }
 
     public boolean isValidEmail(CharSequence email) {
