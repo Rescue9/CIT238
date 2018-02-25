@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     String[] locationArray;
     String[] courseArray;
+    String selectedCourse = "";
     String wholeName;
     EditText firstName;
     EditText lastName;
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "You have selected " + courseArray[position],
                         Toast.LENGTH_SHORT).show();
+                selectedCourse = courseArray[position];
             }
         });
 
@@ -209,6 +211,11 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        /* verify that a course is selected */
+        if (!isCourseSelected()) {
+            return;
+        }
+
     }
 
     public void onClickClear(View view) {
@@ -259,6 +266,15 @@ public class MainActivity extends AppCompatActivity {
         if (studentIdNum.length() != 8) {
             Toast.makeText(this, getResources().getString(
                     R.string.valid_student_id), Toast.LENGTH_LONG).show();
+            return false;
+        } return true;
+    }
+
+    public boolean isCourseSelected() {
+        Log.d("Course Selected", selectedCourse);
+        if (selectedCourse == "") {
+            Toast.makeText(this, getResources().getString(
+                    R.string.valid_course), Toast.LENGTH_LONG).show();
             return false;
         } return true;
     }

@@ -149,9 +149,6 @@
         app:layout_constraintStart_toEndOf="@+id/btnSubmit"
         app:layout_constraintTop_toBottomOf="@+id/chkEmailConfirm" />
 
-        </android.support.constraint.ConstraintLayout>
-    </ScrollView>
-
     <ImageView
         android:id="@+id/imgFinalExam"
         android:layout_width="wrap_content"
@@ -161,4 +158,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/final_exam_logo" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

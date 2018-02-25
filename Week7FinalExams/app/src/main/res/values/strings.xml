@@ -38,5 +38,6 @@
     <string name="valid_student_id">You must input a valid student id (8 digits in length)</string>
     <string name="valid_times">You must pick one: 8:00 am, 12:00 pm, 3:00 pm, or 6:00 pm</string>
     <string name="valid_dates">You must choose a date between April 30 - May 4 2018</string>
+    <string name="valid_course">You must pick a course for testing</string>
 
 </resources>
