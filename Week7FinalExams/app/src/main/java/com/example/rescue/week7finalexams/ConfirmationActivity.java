@@ -21,6 +21,10 @@ public class ConfirmationActivity extends AppCompatActivity {
     Bundle bundle;
 
 
+    /**
+     * Creates the activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +54,18 @@ public class ConfirmationActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Send the email and confirm via checkbox
+     * @param view
+     */
     public void onClickSend(View view) {
         confirmation.setChecked(true);
     }
 
+    /**
+     * navigate back when the return button is pressed.
+     * @param view
+     */
     public void onClickReturn(View view) {
         super.onBackPressed();
     }

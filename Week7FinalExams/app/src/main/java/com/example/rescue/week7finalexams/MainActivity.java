@@ -28,6 +28,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
+    /* declare objects */
     String[] locationArray;
     String[] courseArray;
     String selectedCourse = "";
@@ -48,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
 
     Calendar calendar = Calendar.getInstance();
 
+    /**
+     * Create the application
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Create a time picker
+     * @param v
+     */
     public void onClickTimeButton(View v) {
 
         final TimePickerDialog timePickerDialog = new TimePickerDialog(MainActivity.this,
@@ -133,6 +142,10 @@ public class MainActivity extends AppCompatActivity {
         timePickerDialog.show();
     }
 
+    /**
+     * Create a date picker
+     * @param v
+     */
     public void onClickDateButton(View v) {
 
         final DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this,
@@ -188,6 +201,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * validate information, create a bundle, and start the second activity
+     * @param view
+     */
     public void onClickSubmit(View view) {
 
         /* make sure the first and last name have more than 1 character */
@@ -229,6 +246,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Clear all the fields for new information
+     * @param view
+     */
     public void onClickClear(View view) {
 
         /* clear all edittext fields and reset spinner & picker objects */
@@ -242,14 +263,27 @@ public class MainActivity extends AppCompatActivity {
         courses.setItemChecked(-1, true);
     }
 
+    /**
+     * Check first name length is greater than 2
+     * @return
+     */
     public boolean firstNameLength() {
         return firstName.length() >= 2;
     }
 
+    /**
+     * Check last name length is greater than 2
+     * @return
+     */
     public boolean lastNameLength() {
         return lastName.length() >= 2;
     }
 
+    /**
+     * Validate email has propper address structure
+     * @param email
+     * @return
+     */
     public boolean isValidEmail(CharSequence email) {
         if (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             return true;
@@ -260,6 +294,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Check that the location is one of the valid options
+     * @param location
+     * @return
+     */
     public boolean isValidLocation(CharSequence location) {
         for (int l=0; l<locationArray.length; l++) {
             if (location.equals(locationArray[l].toString())) {
@@ -273,6 +312,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Make sure the student id is only 8 characters
+     * @param studentIdNum
+     * @return
+     */
     public boolean isValidStudentId(String studentIdNum) {
         Log.d("length", String.valueOf(studentIdNum.length()));
         if (studentIdNum.length() != 8) {
@@ -282,6 +326,10 @@ public class MainActivity extends AppCompatActivity {
         } return true;
     }
 
+    /**
+     * Make sure that a course is selected
+     * @return
+     */
     public boolean isCourseSelected() {
         Log.d("Course Selected", selectedCourse);
         if (selectedCourse == "") {
