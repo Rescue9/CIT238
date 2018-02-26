@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Week7FinalExams</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="student_id">Student ID</string>
+    <string name="pick_course">Pick a course</string>
+    <string-array name="course_list">
+        <item>ACT 101 - Fundamentals of Accounting</item>
+        <item>BIO 112 - Introduction to Biology</item>
+        <item>CHE 270 - Organic Chemistry 1</item>
+        <item>CIT 149 - Java 1</item>
+        <item>CIT 238 - Android Programming 1</item>
+        <item>DAH 131 - Oral Pathology</item>
+        <item>FRS 101 - Intro. to Fire Services</item>
+        <item>FRS 2071 - Company Officer</item>
+        <item>GEO 172 - Human Geography</item>
+        <item>HIS 271 - Medieval Europe</item>
+    </string-array>
+    <string name="enter_location">Enter a Location</string>
+    <string-array name="test_location">
+        <item>Newtown</item>
+        <item>Cooper</item>
+        <item>Leestown</item>
+        <item>Georgetown</item>
+        <item>Lawrenceburg</item>
+        <item>Winchester</item>
+        <item>Danville</item>
+    </string-array>
+    <string name="date_button">Choose Date</string>
+    <string name="time_button">Choose Time</string>
+    <string name="email_checkbox_label">Confirmation Email?</string>
+    <string name="submit">Submit</string>
+    <string name="clear">Clear</string>
+    <string name="name_length">Your First Name and Last Name must be longer than 1 character</string>
+    <string name="valid_email">You must input a valid email address</string>
+    <string name="valid_location">You must input a valid location</string>
+    <string name="valid_student_id">You must input a valid student id (8 digits in length)</string>
+    <string name="valid_times">You must pick one: 8:00 am, 12:00 pm, 3:00 pm, or 6:00 pm</string>
+    <string name="valid_dates">You must choose a date between April 30 - May 4 2018</string>
+    <string name="valid_course">You must pick a course for testing</string>
+
+    <string name="email_to">To:</string>
+    <string name="email_from">From:</string>
+    <string name="email_subject">Subject:</string>
+    <string name="email_subject_info">Your scheduled course final information</string>
+    <string name="email_from_address">BCTCFinalsScheduling@bctc.kctcs.edu</string>
+    <string name="email_1">Thank you for choosing the BCTC Finals Scheculing application
+    to schedule your finals. You are currently signed up to take the following final
+    listed below. Please verify all information is correct.</string>
+    <string name="request_email">Requesting Email</string>
+
+</resources>
