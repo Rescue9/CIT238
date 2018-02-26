@@ -40,4 +40,14 @@
     <string name="valid_dates">You must choose a date between April 30 - May 4 2018</string>
     <string name="valid_course">You must pick a course for testing</string>
 
+    <string name="email_to">To:</string>
+    <string name="email_from">From:</string>
+    <string name="email_subject">Subject:</string>
+    <string name="email_subject_info">Your scheduled course final information</string>
+    <string name="email_from_address">BCTCFinalsScheduling@bctc.kctcs.edu</string>
+    <string name="email_1">Thank you for choosing the BCTC Finals Scheculing application
+    to schedule your finals. You are currently signed up to take the following final
+    listed below. Please verify all information is correct.</string>
+    <string name="request_email">Requesting Email</string>
+
 </resources>

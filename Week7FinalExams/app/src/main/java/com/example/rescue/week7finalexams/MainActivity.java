@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.TimePickerDialog;
 import android.app.TimePickerDialog.OnTimeSetListener;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     String[] locationArray;
     String[] courseArray;
     String selectedCourse = "";
+    String selectedLocation = "";
     String wholeName;
     EditText firstName;
     EditText lastName;
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox confirmEmail;
     Button dateButton;
     Button timeButton;
+    Bundle bundle = new Bundle();
 
     int hour, minute;
 
@@ -124,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
 
-                        timeButton.setText(hour + ":00");
+                        timeButton.setText(hourOfDay + ":00");
                     }
                 }, calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE) , true);
         timePickerDialog.show();
@@ -216,6 +219,14 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        /* create email if Confirmation Email selected */
+        if (confirmEmail.isChecked()) {
+            Intent intent = new Intent(this, ConfirmationActivity.class);
+            bundleExtras();
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+
     }
 
     public void onClickClear(View view) {
@@ -229,7 +240,6 @@ public class MainActivity extends AppCompatActivity {
         locations.setText("");
         confirmEmail.setChecked(false);
         courses.setItemChecked(-1, true);
-
     }
 
     public boolean firstNameLength() {
@@ -253,6 +263,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean isValidLocation(CharSequence location) {
         for (int l=0; l<locationArray.length; l++) {
             if (location.equals(locationArray[l].toString())) {
+                selectedLocation = locationArray[l].toString();
                 return true;
             }
         }
@@ -279,5 +290,23 @@ public class MainActivity extends AppCompatActivity {
             return false;
         } return true;
     }
+
+    /**
+     * Creates a bundle for use in passing extras to the various intents.
+     * @return the bundle object
+     */
+    public Bundle bundleExtras() {
+        /* Since these are non-translatable, I didn't put these in strings.xml */
+        bundle.putString("wholeName", wholeName);
+        bundle.putString("emailAddress", email.getText().toString());
+        bundle.putString("studentId", studentId.getText().toString());
+        bundle.putString("course", selectedCourse);
+        bundle.putString("location", selectedLocation);
+        bundle.putString("date", dateButton.getText().toString());
+        bundle.putString("time", timeButton.getText().toString());
+
+        return bundle;
+    }
+
 
 }
