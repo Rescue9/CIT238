@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Week8Venues</string>
+    <string name="cafe_du_monde">Cafe du Monde</string>
+    <string name="la_colombe">La Colombe</string>
+    <string name="stumptown">Stumptown</string>
+    <string name="sightglass">Sightglass</string>
+    <string name="blue_bottle">Blue Bottle</string>
 </resources>
