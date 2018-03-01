@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar.LayoutParams;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -145,7 +144,11 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.cafe_du_monde: {
                 cafeAddress = getResources().getString(R.string.cdm_addy);
-                Log.d("Here", cafeAddress);
+                cafePhone = getResources().getString(R.string.cdm_phone);
+                cafeHours = getResources().getString(R.string.cdm_hours);
+                cafeMapAddr = getResources().getString(R.string.cdm_map);
+                cafeHtml = getResources().getString(R.string.cdm_html);
+                cafeHistory = getResources().getString(R.string.cdm_history);
             }
         }
 
@@ -167,8 +170,8 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("cafeAddress", cafeAddress);
         bundle.putString("cafePhone", cafePhone);
         bundle.putString("cafeHours", cafeHours);
-        bundle.putString("cafeMapAddr", cafeMapAddr);
         bundle.putString("cafeHtml", cafeHtml);
+        bundle.putString("cafeMapAddr", cafeMapAddr);
         bundle.putString("cafeHistory", cafeHistory);
 
         return bundle;
