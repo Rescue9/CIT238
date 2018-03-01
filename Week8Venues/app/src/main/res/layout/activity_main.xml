@@ -9,7 +9,7 @@
     <GridView
         android:id="@+id/grdLogos"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:numColumns="5"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -17,5 +17,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </GridView>
+
+    <ImageSwitcher
+        android:id="@+id/imsLogoImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/grdLogos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

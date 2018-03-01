@@ -2,31 +2,63 @@ package com.example.rescue.week8venues;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar.LayoutParams;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.Toast;
+import android.widget.ViewSwitcher.ViewFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    Integer[] imageIds = {
-            R.mipmap.bluebottle_150px,
-            R.mipmap.cafedumonde_150px,
-            R.mipmap.lacolumbe_150,
-            R.mipmap.sightglass_150px,
-            R.mipmap.stumptown_150px
+    private ImageSwitcher imageSwitcher;
+
+    Integer[] logoImages = {
+            R.mipmap.coffeelogo_150px_0,
+            R.mipmap.coffeelogo_150px_1,
+            R.mipmap.coffeelogo_150px_2,
+            R.mipmap.coffeelogo_150px_3,
+            R.mipmap.coffeelogo_150px_4
+    };
+
+    Integer[] coffeeImages = {
+            R.mipmap.coffeeimage_600_0,
+            R.mipmap.coffeeimage_600_1,
+            R.mipmap.coffeeimage_600_2,
+            R.mipmap.coffeeimage_600_3,
+            R.mipmap.coffeeimage_600_4,
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        imageSwitcher = (ImageSwitcher) findViewById(R.id.imsLogoImage);
+        imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(this,
+                android.R.anim.fade_in));
+        imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this,
+                android.R.anim.fade_out));
+
+        imageSwitcher.setFactory(new ViewFactory() {
+            @Override
+            public View makeView() {
+                ImageView imageView = new ImageView(getApplicationContext());
+                imageView.setScaleType(ScaleType.FIT_CENTER);
+                imageView.setLayoutParams(new ImageSwitcher.LayoutParams(
+                        LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT
+                ));
+                return imageView;
+            }
+        });
 
         GridView gridView = (GridView) findViewById(R.id.grdLogos);
         gridView.setAdapter(new ImageAdapter(this));
@@ -36,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(),
                         "pic" + (position + 1) + " selected",
                         Toast.LENGTH_SHORT).show();
+
+                imageSwitcher.setImageResource(coffeeImages[position]);
             }
         });
     }
@@ -49,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
         //---returns the number of images---
         public int getCount() {
-            return imageIds.length;
+            return logoImages.length;
         }
         //---returns the item---
         public Object getItem(int position) {
@@ -74,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 imageView = (ImageView) convertView;
             }
-            imageView.setImageResource(imageIds[position]);
+            imageView.setImageResource(logoImages[position]);
             return imageView;
         }
     }
