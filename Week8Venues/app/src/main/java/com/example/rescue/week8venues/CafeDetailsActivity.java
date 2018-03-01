@@ -2,6 +2,7 @@ package com.example.rescue.week8venues;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CafeDetailsActivity extends AppCompatActivity {
@@ -14,6 +15,7 @@ public class CafeDetailsActivity extends AppCompatActivity {
     TextView txtCafeHtml;
     TextView txtCafeMap;
     TextView txtCafeHistory;
+    ImageView imgCafeImage;
 
     Bundle bundle;
 
@@ -32,6 +34,7 @@ public class CafeDetailsActivity extends AppCompatActivity {
         txtCafeHtml = (TextView) findViewById(R.id.txtCafeHtml);
         txtCafeMap = (TextView) findViewById(R.id.txtCafeMap);
         txtCafeHistory = (TextView) findViewById(R.id.txtCafeHistory);
+        imgCafeImage = (ImageView) findViewById(R.id.imgCafeImage);
 
         // assign bundle keys to objects //
         txtCafeTitle.setText(bundle.getString("cafeName"));
@@ -41,5 +44,6 @@ public class CafeDetailsActivity extends AppCompatActivity {
         txtCafeHtml.setText(bundle.getString("cafeHtml"));
         txtCafeMap.setText(bundle.getString("cafeMapAddr"));
         txtCafeHistory.setText(bundle.getString("cafeHistory"));
+        imgCafeImage.setImageResource(bundle.getInt("cafeImage"));
     }
 }

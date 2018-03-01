@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     String cafeMapAddr = "";
     String cafeHtml = "";
     String cafeHistory = "";
+    int cafeImage = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 cafeMapAddr = getResources().getString(R.string.cdm_map);
                 cafeHtml = getResources().getString(R.string.cdm_html);
                 cafeHistory = getResources().getString(R.string.cdm_history);
+                cafeImage = R.mipmap.coffeeimage_600_0;
             }
         }
 
@@ -173,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("cafeHtml", cafeHtml);
         bundle.putString("cafeMapAddr", cafeMapAddr);
         bundle.putString("cafeHistory", cafeHistory);
+        bundle.putInt("cafeImage", cafeImage);
 
         return bundle;
     }
