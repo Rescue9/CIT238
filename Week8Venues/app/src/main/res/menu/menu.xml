@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:id="@+id/cofeeShops">
-        <item android:title="@string/cafe_du_monde" />
-        <item android:title="@string/la_colombe" />
-        <item android:title="@string/stumptown" />
-        <item android:title="@string/sightglass" />
-        <item android:title="@string/blue_bottle" />
+        <item android:title="@string/cafe_du_monde"
+            android:id="@+id/cafe_du_monde"/>
+        <item android:title="@string/la_colombe"
+            android:id="@+id/la_colombe"/>
+        <item android:title="@string/stumptown"
+            android:id="@+id/stumptown" />
+        <item android:title="@string/sightglass"
+            android:id="@+id/sightclass" />
+        <item android:title="@string/blue_bottle"
+            android:id="@+id/blue_bottle"/>
     </group>
 </menu>

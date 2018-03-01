@@ -1,9 +1,11 @@
 package com.example.rescue.week8venues;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar.LayoutParams;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -39,6 +41,17 @@ public class MainActivity extends AppCompatActivity {
             R.mipmap.coffeeimage_600_3,
             R.mipmap.coffeeimage_600_4,
     };
+
+    Bundle bundle = new Bundle();
+
+    // cafe object placeholders //
+    String cafeName = "";
+    String cafeAddress = "";
+    String cafePhone = "";
+    String cafeHours = "";
+    String cafeMapAddr = "";
+    String cafeHtml = "";
+    String cafeHistory = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,18 +97,20 @@ public class MainActivity extends AppCompatActivity {
         public int getCount() {
             return logoImages.length;
         }
+
         //---returns the item---
         public Object getItem(int position) {
             return position;
         }
+
         //---returns the ID of an item---
         public long getItemId(int position) {
             return position;
         }
+
         //---returns an ImageView view---
         public View getView(int position, View convertView,
-                            ViewGroup parent)
-        {
+                            ViewGroup parent) {
             ImageView imageView;
             if (convertView == null) {
                 imageView = new ImageView(context);
@@ -122,7 +137,41 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
+
         Toast.makeText(this, "Selected: " + item, Toast.LENGTH_LONG).show();
+        cafeName = item.toString();
+
+        // create switch for different cafes //
+        switch (item.getItemId()) {
+            case R.id.cafe_du_monde: {
+                cafeAddress = getResources().getString(R.string.cdm_addy);
+                Log.d("Here", cafeAddress);
+            }
+        }
+
+
+        Intent intent = new Intent(this, CafeDetailsActivity.class);
+        bundleExtras();
+        intent.putExtras(bundle);
+        startActivity(intent);
         return true;
     }
+
+    /**
+     * Creates a bundle for use in passing extras to the various intents.
+     * @return the bundle object
+     */
+    public Bundle bundleExtras() {
+        /* Since these are non-translatable, I didn't put these in strings.xml */
+        bundle.putString("cafeName", cafeName);
+        bundle.putString("cafeAddress", cafeAddress);
+        bundle.putString("cafePhone", cafePhone);
+        bundle.putString("cafeHours", cafeHours);
+        bundle.putString("cafeMapAddr", cafeMapAddr);
+        bundle.putString("cafeHtml", cafeHtml);
+        bundle.putString("cafeHistory", cafeHistory);
+
+        return bundle;
+    }
+
 }
