@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public View makeView() {
                 ImageView imageView = new ImageView(getApplicationContext());
-                imageView.setScaleType(ScaleType.FIT_CENTER);
+                imageView.setScaleType(ScaleType.CENTER);
                 imageView.setLayoutParams(new ImageSwitcher.LayoutParams(
                         LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT
                 ));
