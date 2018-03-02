@@ -18,7 +18,6 @@ import android.widget.GridView;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
-import android.widget.Toast;
 import android.widget.ViewSwitcher.ViewFactory;
 
 public class MainActivity extends AppCompatActivity {
@@ -141,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
 
-        Toast.makeText(this, "Selected: " + item, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Selected: " + item, Toast.LENGTH_LONG).show();
         cafeName = item.toString();
 
         // create switch for different cafes //
