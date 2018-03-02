@@ -19,11 +19,16 @@
                 android:id="@+id/txtCafeTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="@font/caudex"
+                android:shadowColor="@android:color/darker_gray"
+                android:shadowDx="3"
+                android:shadowDy="3"
+                android:shadowRadius="10"
                 android:text="TextView"
                 android:textColor="@android:color/black"
                 android:textSize="36sp"
-                android:textStyle="italic"
-                android:layout_marginTop="24dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,8 +37,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:textColor="@android:color/holo_blue_dark"
                 android:text="TextView"
-                app:layout_constraintLeft_toRightOf="@id/txtCafeTitle"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,8 +48,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
                 android:text="Button"
-                app:layout_constraintLeft_toRightOf="@id/txtCafeTitle"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtCafePhone" />
 
@@ -52,9 +58,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
+                android:layout_marginLeft="8dp"
                 android:text="TextView"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnCafeHtml" />
+                app:layout_constraintTop_toBottomOf="@+id/txtCafeTitle" />
 
             <TextView
                 android:id="@+id/txtCafeHours"
@@ -63,6 +70,7 @@
                 android:layout_marginTop="8dp"
                 android:text="TextView"
                 app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtCafeAddy" />
 
 

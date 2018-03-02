@@ -22,6 +22,10 @@ public class CafeDetailsActivity extends AppCompatActivity {
 
     Bundle bundle;
 
+    /**
+     * Creates the activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

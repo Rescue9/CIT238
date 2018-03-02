@@ -23,6 +23,8 @@ import android.widget.ViewSwitcher.ViewFactory;
 
 public class MainActivity extends AppCompatActivity {
 
+    // declare and instantiate various objects //
+
     private ImageSwitcher imageSwitcher;
 
     Integer[] logoImages = {
@@ -54,12 +56,16 @@ public class MainActivity extends AppCompatActivity {
     int cafeImage = 0;
     int imgNumber = 0;
 
-
+    /**
+     * Creates tha activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // create an image switcher object that allows the images to be changed on-the-fly //
         imageSwitcher = (ImageSwitcher) findViewById(R.id.imsLogoImage);
         imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(this,
                 android.R.anim.fade_in));
@@ -81,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         // set initial image instead of big whitespace //
         imageSwitcher.setImageResource(coffeeImages[0]);
 
+        // setup a grid of images that will be used to control the imageswitcher //
         GridView gridView = (GridView) findViewById(R.id.grdLogos);
         gridView.setAdapter(new ImageAdapter(this));
         gridView.setOnItemClickListener(new OnItemClickListener() {
@@ -91,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /* setup a click listener so that  if the main image is clicked, it will perform
+            the same action as clicking the menu */
         imageSwitcher.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,6 +114,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * This adapter controls the imageview, sets various parameters, and sets
+     * the image based upon which logoimage was clicked
+     */
     public class ImageAdapter extends BaseAdapter {
         private Context context;
 
@@ -146,6 +159,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Create the options menu
+     * @param menu the menu view object
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -153,6 +171,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Catch the menu item click and start the CafeDetails intent
+     * @param item the item clicked in the menu view
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
@@ -185,6 +208,11 @@ public class MainActivity extends AppCompatActivity {
         return bundle;
     }
 
+    /**
+     * Creates a switch method that operates on a menu item object to set various
+     * variables that will be bundled to the next intent
+     * @param item the menu item clicked
+     */
     public void getSwitchCase(MenuItem item) {
         // create switch for different cafes //
         switch (item.getItemId()) {
@@ -249,6 +277,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    /**
+     * Creates a switch method that operates on a menu item object to set various
+     * variables that will be bundled to the next intent
+     * @param number the image resource that was clicked
+     */
     public void getSwitchCase(int number) {
         // create switch for different cafes //
         switch (number) {

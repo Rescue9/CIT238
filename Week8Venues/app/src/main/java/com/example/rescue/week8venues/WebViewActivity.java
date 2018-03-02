@@ -10,6 +10,10 @@ public class WebViewActivity extends AppCompatActivity {
 
     Bundle bundle;
 
+    /**
+     * Creates the activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +21,7 @@ public class WebViewActivity extends AppCompatActivity {
 
         bundle = getIntent().getExtras();
 
+        // setup a webview object and assign various parameters to it //
         WebView wv = (WebView) findViewById(R.id.wbvWebView);
         WebSettings webSettings = wv.getSettings();
         webSettings.setBuiltInZoomControls(true);
