@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android=
+    "http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.rescue.chapter6menus.MainActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="247dp"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_main"
+        tools:layout_constraintLeft_creator="0"
+        app:layout_constraintTop_toTopOf="@+id/activity_main"
+        tools:layout_constraintTop_creator="0"
+        app:layout_constraintRight_toRightOf="@+id/activity_main"
+        tools:layout_constraintRight_creator="0"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_main"
+        tools:layout_constraintBottom_creator="0" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="102dp"
+        android:id="@+id/button"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_main"
+        tools:layout_constraintLeft_creator="0"
+        app:layout_constraintRight_toRightOf="@+id/activity_main"
+        tools:layout_constraintRight_creator="0" />
+
+</android.support.constraint.ConstraintLayout>

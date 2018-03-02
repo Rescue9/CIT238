@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">Week8Venues</string>
+    <string name="cafe_du_monde">Cafe du Monde</string>
+    <string name="la_colombe">La Colombe</string>
+    <string name="stumptown">Stumptown</string>
+    <string name="sightglass">Sightglass</string>
+    <string name="blue_bottle">Blue Bottle</string>
+    <string name="visit_website">Visit Website</string>
+
+    <!-- Cafe du Monde -->
+    <string name="cdm_addy">800 Decatur Street  New Orleans, LA 70116</string>
+    <string name="cdm_phone">(504) 525-4544</string>
+    <string name="cdm_hours">Open 24 Hours</string>
+    <string name="cdm_html">http://www.cafedumonde.com/</string>
+    <string name="cdm_history">The Original Cafe Du Monde Coffee Stand was established in 1862 in
+        the New Orleans French Market. The Cafe is open 24 hours a day, seven days a week. It closes
+        only on Christmas Day and on the day an occasional Hurricane passes too close to
+        New Orleans.\n\nThe Original Cafe Du Monde is a traditional coffee shop. Its menu consists of
+        dark roasted Coffee and Chicory, Beignets, White and Chocolate Milk, and fresh squeezed
+        Orange Juice. The coffee is served Black or Au Lait.\n\nAu Lait means that it is mixed half
+        and half with hot milk. Beignets are square French -style doughnuts, lavishly covered with
+        powdered sugar. In 1988 Iced Coffee was introduced to the cafe. Soft drinks also made their
+        debut that year.</string>
+
+    <!-- La Colombe -->
+    <string name="lac_addy">400 Lafayette St  New York, NY 10003</string>
+    <string name="lac_phone">(212) 677-5834</string>
+    <string name="lac_hours">Mon–Fri 7:30 AM–6:30 PM, Sat–Sun 8:30 AM–6:30 PM</string>
+    <string name="lac_html">http://www.lacolombe.com/</string>
+    <string name="lac_history">Todd Carmichael and JP Iberti founded La Colombe on a simple but
+        profound premise: America Deserves Better Coffee. By sourcing and roasting with care, and
+        borrowing on ancient and modern coffee traditions from around the world, the two have built
+        a successful company and an elevated coffee experience for Americans. Through 20 years of
+        hard work and innovation, the two have made sure that experience is shared in cafes and
+        homes across the country.\n\nIn addition to supporting our coffee-producing communities,
+        we seek to support, nurture, and enhance the local neighborhoods that are home to our cafes.
+        From providing free coffee to a nearby homeless shelter to helping with the community garden
+        across the street, we work hard to engage with our environment and create meaningful
+        connections with our neighbors.\n\nHere at La Colombe, we are keenly aware of where our
+        coffee comes from, how it was grown, and, most importantly, the needs of the people involved
+        in the coffee’s journey from seed to cup. We care deeply about the wellbeing of
+        coffee-growing communities, and we strive to implement the best business practices to
+        increase that wellbeing.</string>
+
+    <!-- Stumptown -->
+    <string name="stm_addy">18 W 29th St  New York, NY 10001</string>
+    <string name="stm_phone">(347) 414-7805</string>
+    <string name="stm_hours">Mon–Fri 6:00 AM–8:00 PM, Sat–Sun 7:00 AM–8:00 PM</string>
+    <string name="stm_html">http://www.stumptowncoffee.com/</string>
+    <string name="stm_history">Coffee is about pleasure. It’s that moment when your hand is warmed
+        by the mug, you raise it to your nose, inhale deeply and then take a sip. That sip is the
+        culmination of years of work, three-thousand mile journeys, and passion. Here is how we
+        make that sip perfect.\n\nStumptown Coffee Roasters is a coffee roaster and retailer based
+        in Portland, Oregon, United States. The chain\'s flagship café and roastery opened in 1999.
+        Three other cafes, a roastery and a tasting annex have since opened in Portland, as well
+        as locations in Seattle, New York, Los Angeles, Chicago, and New Orleans.\n\nWe don’t buy
+        in bulk on a trading floor. We buy directly from the people who are making the coffee.
+        It’s not a transaction; it’s a partnership. If someone is growing the quality of coffee
+        we’re interested in, then we will help them in any way we can. That means regular visits
+        (even though that trip can take up to four days), implementing new techniques and equipment,
+        and forming long-term partnerships.</string>
+
+    <!-- Sightglass -->
+    <string name="sgl_addy">270 7th St  San Francisco, CA 94103</string>
+    <string name="sgl_phone">(415) 861-1313</string>
+    <string name="sgl_hours">Mon–Sat 7:00 AM–7:00 PM, Sun 8:00 AM–7:00 PM</string>
+    <string name="sgl_html">http://www.sightglasscoffee.com/</string>
+    <string name="sgl_history">Our company takes its name from the \'sightglass,\' the viewing
+        window on our vintage PROBAT coffee roaster that exposes the complex and delicate process
+        of roasting coffee. We believe that knowing the story behind your coffee—where it was
+        grown, how it was processed, and who handled it along the way—is a powerful link from the
+        cup to the wider world.\n\nIn 2009, we began with a small, rickety service-cart in San
+        Francisco’s SoMa district. Equipped with a few Chemex pots and a leaky vintage 2-group
+        espresso machine, we served coffee to the neighborhood just behind a roll-up garage door
+        housed in a sturdy 1914 built warehouse. People came to visit us, and remarkably, even came
+        back to taste more.\n\nTwo years and many coffees later, the entirety of this warehouse would
+        become our production roastery, a dynamic and unconventional coffee bar, a community
+        gathering space, and our company headquarters.</string>
+
+    <!-- Blue Bottle -->
+    <string name="bbl_addy">66 Mint Plaza  San Francisco, CA 94103</string>
+    <string name="bbl_phone">(510) 653-3394</string>
+    <string name="bbl_hours">Mon–Sun 7:00 AM–7:00 PM</string>
+    <string name="bbl_html">http://bluebottlecoffee.com/</string>
+    <string name="bbl_history">In the early 2000s, in Oakland, California, a slightly disaffected
+        freelance musician and coffee lunatic, weary of the commercial coffee enterprise and stale,
+        overly roasted beans, decided to open a roaster for people who were clamoring for the actual
+        taste of fresh coffee.\n\nUsing a minuscule six-pound batch roaster, he made a historic vow:
+        “I will only sell coffee less than 48 hours out of the roaster to my guests, so they may
+        enjoy coffee at peak flavor. I will only use the finest, most delicious, and responsibly
+        sourced beans.”\n\nNow, nearly 15 years later, and thanks to the enthusiastic support
+        of many loyal guests, Blue Bottle Coffee has grown to a small network of cafes, an espresso
+        cart, the occasional pop-up, and a small fleet of Loring roasters. We are still united by
+        the simple purpose of getting great coffee to everyone who asks for it. We have gotten even
+        more specific about freshness and peak flavor.\n\nImprobably and delightfully, there are
+        hundreds of us now.</string>
+
+</resources>
