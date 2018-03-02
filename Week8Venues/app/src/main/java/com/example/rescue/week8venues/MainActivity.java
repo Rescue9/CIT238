@@ -143,6 +143,35 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(this, "Selected: " + item, Toast.LENGTH_LONG).show();
         cafeName = item.toString();
 
+        // get switch case //
+        getSwitchCase(item);
+
+        Intent intent = new Intent(this, CafeDetailsActivity.class);
+        bundleExtras();
+        intent.putExtras(bundle);
+        startActivity(intent);
+        return true;
+    }
+
+    /**
+     * Creates a bundle for use in passing extras to the various intents.
+     * @return the bundle object
+     */
+    public Bundle bundleExtras() {
+        /* Since these are non-translatable, I didn't put these in strings.xml */
+        bundle.putString("cafeName", cafeName);
+        bundle.putString("cafeAddress", cafeAddress);
+        bundle.putString("cafePhone", cafePhone);
+        bundle.putString("cafeHours", cafeHours);
+        bundle.putString("cafeHtml", cafeHtml);
+        bundle.putString("cafeHtmlLabel", getResources().getString(R.string.visit_website));
+        bundle.putString("cafeHistory", cafeHistory);
+        bundle.putInt("cafeImage", cafeImage);
+
+        return bundle;
+    }
+
+    public void getSwitchCase(MenuItem item) {
         // create switch for different cafes //
         switch (item.getItemId()) {
             case R.id.cafe_du_monde: {
@@ -201,30 +230,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-
-        Intent intent = new Intent(this, CafeDetailsActivity.class);
-        bundleExtras();
-        intent.putExtras(bundle);
-        startActivity(intent);
-        return true;
-    }
-
-    /**
-     * Creates a bundle for use in passing extras to the various intents.
-     * @return the bundle object
-     */
-    public Bundle bundleExtras() {
-        /* Since these are non-translatable, I didn't put these in strings.xml */
-        bundle.putString("cafeName", cafeName);
-        bundle.putString("cafeAddress", cafeAddress);
-        bundle.putString("cafePhone", cafePhone);
-        bundle.putString("cafeHours", cafeHours);
-        bundle.putString("cafeHtml", cafeHtml);
-        bundle.putString("cafeHtmlLabel", getResources().getString(R.string.visit_website));
-        bundle.putString("cafeHistory", cafeHistory);
-        bundle.putInt("cafeImage", cafeImage);
-
-        return bundle;
     }
 
 }
