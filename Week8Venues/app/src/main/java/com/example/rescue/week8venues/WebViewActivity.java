@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class WebViewActivity extends AppCompatActivity {
 
@@ -19,6 +20,7 @@ public class WebViewActivity extends AppCompatActivity {
         WebView wv = (WebView) findViewById(R.id.wbvWebView);
         WebSettings webSettings = wv.getSettings();
         webSettings.setBuiltInZoomControls(true);
+        wv.setWebViewClient(new WebViewClient());
         wv.loadUrl(bundle.getString("cafeWebView"));
     }
 }

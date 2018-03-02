@@ -8,7 +8,7 @@
         <item android:title="@string/stumptown"
             android:id="@+id/stumptown" />
         <item android:title="@string/sightglass"
-            android:id="@+id/sightclass" />
+            android:id="@+id/sightglass" />
         <item android:title="@string/blue_bottle"
             android:id="@+id/blue_bottle"/>
     </group>

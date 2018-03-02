@@ -44,7 +44,7 @@ public class CafeDetailsActivity extends AppCompatActivity {
         txtCafePhone.setText(bundle.getString("cafePhone"));
         txtCafeHours.setText(bundle.getString("cafeHours"));
         btnCafeHtml.setText(bundle.getString("cafeHtmlLabel"));
-        txtCafeHistory.setText(bundle.getString("cafeHistory"));
+       txtCafeHistory.setText(bundle.getString("cafeHistory"));
         imgCafeImage.setImageResource(bundle.getInt("cafeImage"));
 
         // create onclick event for web //

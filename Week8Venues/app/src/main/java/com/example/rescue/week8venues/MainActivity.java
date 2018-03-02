@@ -48,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
     String cafeAddress = "";
     String cafePhone = "";
     String cafeHours = "";
-    String cafeMap = "";
-    String cafeMapLabel = "";
     String cafeHtml = "";
     String cafeHtmlLabel = "";
     String cafeHistory = "";
@@ -150,9 +148,54 @@ public class MainActivity extends AppCompatActivity {
                 cafePhone = getResources().getString(R.string.cdm_phone);
                 cafeHours = getResources().getString(R.string.cdm_hours);
                 cafeHtml = getResources().getString(R.string.cdm_html);
-                cafeHtmlLabel = getResources().getString(R.string.cdm_html_label);
+                cafeHtmlLabel = getResources().getString(R.string.cafe_du_monde);
                 cafeHistory = getResources().getString(R.string.cdm_history);
                 cafeImage = R.mipmap.coffeeimage_600_0;
+                break;
+            }
+
+            case R.id.la_colombe: {
+                cafeAddress = getResources().getString(R.string.lac_addy);
+                cafePhone = getResources().getString(R.string.lac_phone);
+                cafeHours = getResources().getString(R.string.lac_hours);
+                cafeHtml = getResources().getString(R.string.lac_html);
+                cafeHtmlLabel = getResources().getString(R.string.la_colombe);
+                cafeHistory = getResources().getString(R.string.lac_history);
+                cafeImage = R.mipmap.coffeeimage_600_1;
+                break;
+            }
+
+            case R.id.stumptown: {
+                cafeAddress = getResources().getString(R.string.stm_addy);
+                cafePhone = getResources().getString(R.string.stm_phone);
+                cafeHours = getResources().getString(R.string.stm_hours);
+                cafeHtml = getResources().getString(R.string.stm_html);
+                cafeHtmlLabel = getResources().getString(R.string.stumptown);
+                cafeHistory = getResources().getString(R.string.stm_history);
+                cafeImage = R.mipmap.coffeeimage_600_2;
+                break;
+            }
+
+            case R.id.sightglass: {
+                cafeAddress = getResources().getString(R.string.sgl_addy);
+                cafePhone = getResources().getString(R.string.sgl_phone);
+                cafeHours = getResources().getString(R.string.sgl_hours);
+                cafeHtml = getResources().getString(R.string.sgl_html);
+                cafeHtmlLabel = getResources().getString(R.string.sightglass);
+                cafeHistory = getResources().getString(R.string.sgl_history);
+                cafeImage = R.mipmap.coffeeimage_600_3;
+                break;
+            }
+
+            case R.id.blue_bottle: {
+                cafeAddress = getResources().getString(R.string.bbl_addy);
+                cafePhone = getResources().getString(R.string.bbl_phone);
+                cafeHours = getResources().getString(R.string.bbl_hours);
+                cafeHtml = getResources().getString(R.string.bbl_html);
+                cafeHtmlLabel = getResources().getString(R.string.blue_bottle);
+                cafeHistory = getResources().getString(R.string.bbl_history);
+                cafeImage = R.mipmap.coffeeimage_600_4;
+                break;
             }
         }
 
@@ -175,9 +218,7 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("cafePhone", cafePhone);
         bundle.putString("cafeHours", cafeHours);
         bundle.putString("cafeHtml", cafeHtml);
-        bundle.putString("cafeHtmlLabel", cafeHtmlLabel);
-        bundle.putString("cafeMap", cafeMap);
-        bundle.putString("cafeMapLabel", cafeMapLabel);
+        bundle.putString("cafeHtmlLabel", getResources().getString(R.string.visit_website));
         bundle.putString("cafeHistory", cafeHistory);
         bundle.putInt("cafeImage", cafeImage);
 
