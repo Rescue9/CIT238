@@ -76,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // set initial image instead of big whitespace //
+        imageSwitcher.setImageResource(coffeeImages[0]);
+
         GridView gridView = (GridView) findViewById(R.id.grdLogos);
         gridView.setAdapter(new ImageAdapter(this));
         gridView.setOnItemClickListener(new OnItemClickListener() {
