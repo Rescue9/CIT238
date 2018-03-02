@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     String cafeHtmlLabel = "";
     String cafeHistory = "";
     int cafeImage = 0;
+    int imgNumber = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +86,21 @@ public class MainActivity extends AppCompatActivity {
         gridView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                imageSwitcher.setImageResource(coffeeImages[position]);
+                imgNumber = position;
+                imageSwitcher.setImageResource(coffeeImages[imgNumber]);
+            }
+        });
+
+        imageSwitcher.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                getSwitchCase(coffeeImages[imgNumber]);
+
+                Intent intent = new Intent(getApplicationContext(), CafeDetailsActivity.class);
+                bundleExtras();
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
     }
@@ -140,9 +157,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
 
-        //Toast.makeText(this, "Selected: " + item, Toast.LENGTH_LONG).show();
-        cafeName = item.toString();
-
         // get switch case //
         getSwitchCase(item);
 
@@ -175,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
         // create switch for different cafes //
         switch (item.getItemId()) {
             case R.id.cafe_du_monde: {
+                cafeName = getResources().getString(R.string.cafe_du_monde);
                 cafeAddress = getResources().getString(R.string.cdm_addy);
                 cafePhone = getResources().getString(R.string.cdm_phone);
                 cafeHours = getResources().getString(R.string.cdm_hours);
@@ -186,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             case R.id.la_colombe: {
+                cafeName = getResources().getString(R.string.la_colombe);
                 cafeAddress = getResources().getString(R.string.lac_addy);
                 cafePhone = getResources().getString(R.string.lac_phone);
                 cafeHours = getResources().getString(R.string.lac_hours);
@@ -197,6 +213,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             case R.id.stumptown: {
+                cafeName = getResources().getString(R.string.stumptown);
                 cafeAddress = getResources().getString(R.string.stm_addy);
                 cafePhone = getResources().getString(R.string.stm_phone);
                 cafeHours = getResources().getString(R.string.stm_hours);
@@ -208,6 +225,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             case R.id.sightglass: {
+                cafeName = getResources().getString(R.string.sightglass);
                 cafeAddress = getResources().getString(R.string.sgl_addy);
                 cafePhone = getResources().getString(R.string.sgl_phone);
                 cafeHours = getResources().getString(R.string.sgl_hours);
@@ -219,6 +237,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             case R.id.blue_bottle: {
+                cafeName = getResources().getString(R.string.blue_bottle);
                 cafeAddress = getResources().getString(R.string.bbl_addy);
                 cafePhone = getResources().getString(R.string.bbl_phone);
                 cafeHours = getResources().getString(R.string.bbl_hours);
@@ -229,7 +248,69 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
         }
-
     }
+    public void getSwitchCase(int number) {
+        // create switch for different cafes //
+        switch (number) {
+            case R.mipmap.coffeeimage_600_0: {
+                cafeName = getResources().getString(R.string.cafe_du_monde);
+                cafeAddress = getResources().getString(R.string.cdm_addy);
+                cafePhone = getResources().getString(R.string.cdm_phone);
+                cafeHours = getResources().getString(R.string.cdm_hours);
+                cafeHtml = getResources().getString(R.string.cdm_html);
+                cafeHtmlLabel = getResources().getString(R.string.cafe_du_monde);
+                cafeHistory = getResources().getString(R.string.cdm_history);
+                cafeImage = R.mipmap.coffeeimage_600_0;
+                break;
+            }
 
+            case R.mipmap.coffeeimage_600_1: {
+                cafeName = getResources().getString(R.string.la_colombe);
+                cafeAddress = getResources().getString(R.string.lac_addy);
+                cafePhone = getResources().getString(R.string.lac_phone);
+                cafeHours = getResources().getString(R.string.lac_hours);
+                cafeHtml = getResources().getString(R.string.lac_html);
+                cafeHtmlLabel = getResources().getString(R.string.la_colombe);
+                cafeHistory = getResources().getString(R.string.lac_history);
+                cafeImage = R.mipmap.coffeeimage_600_1;
+                break;
+            }
+
+            case R.mipmap.coffeeimage_600_2: {
+                cafeName = getResources().getString(R.string.stumptown);
+                cafeAddress = getResources().getString(R.string.stm_addy);
+                cafePhone = getResources().getString(R.string.stm_phone);
+                cafeHours = getResources().getString(R.string.stm_hours);
+                cafeHtml = getResources().getString(R.string.stm_html);
+                cafeHtmlLabel = getResources().getString(R.string.stumptown);
+                cafeHistory = getResources().getString(R.string.stm_history);
+                cafeImage = R.mipmap.coffeeimage_600_2;
+                break;
+            }
+
+            case R.mipmap.coffeeimage_600_3: {
+                cafeName = getResources().getString(R.string.sightglass);
+                cafeAddress = getResources().getString(R.string.sgl_addy);
+                cafePhone = getResources().getString(R.string.sgl_phone);
+                cafeHours = getResources().getString(R.string.sgl_hours);
+                cafeHtml = getResources().getString(R.string.sgl_html);
+                cafeHtmlLabel = getResources().getString(R.string.sightglass);
+                cafeHistory = getResources().getString(R.string.sgl_history);
+                cafeImage = R.mipmap.coffeeimage_600_3;
+                break;
+            }
+
+            case R.mipmap.coffeeimage_600_4: {
+                cafeName = getResources().getString(R.string.blue_bottle);
+                cafeAddress = getResources().getString(R.string.bbl_addy);
+                cafePhone = getResources().getString(R.string.bbl_phone);
+                cafeHours = getResources().getString(R.string.bbl_hours);
+                cafeHtml = getResources().getString(R.string.bbl_html);
+                cafeHtmlLabel = getResources().getString(R.string.blue_bottle);
+                cafeHistory = getResources().getString(R.string.bbl_history);
+                cafeImage = R.mipmap.coffeeimage_600_4;
+                break;
+            }
+        }
+    }
 }
