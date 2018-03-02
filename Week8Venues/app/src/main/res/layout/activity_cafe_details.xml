@@ -54,8 +54,8 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtCafePhone" />
 
-            <TextView
-                android:id="@+id/txtCafeHtml"
+            <Button
+                android:id="@+id/btnCafeHtml"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -64,15 +64,14 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtCafeHours" />
 
-            <TextView
-                android:id="@+id/txtCafeMap"
+            <ImageView
+                android:id="@+id/imgCafeImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="TextView"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtCafeHtml" />
+                app:layout_constraintTop_toBottomOf="@+id/btnCafeHtml" />
 
             <TextView
                 android:id="@+id/txtCafeHistory"
@@ -82,16 +81,7 @@
                 android:text="TextView"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtCafeMap" />
-
-            <ImageView
-                android:id="@+id/imgCafeImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtCafeHistory" />
+                app:layout_constraintTop_toBottomOf="@+id/imgCafeImage" />
 
         </android.support.constraint.ConstraintLayout>
 

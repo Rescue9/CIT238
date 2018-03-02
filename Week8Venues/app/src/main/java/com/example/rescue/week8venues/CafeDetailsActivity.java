@@ -1,7 +1,11 @@
 package com.example.rescue.week8venues;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,8 +16,7 @@ public class CafeDetailsActivity extends AppCompatActivity {
     TextView txtCafeAddy;
     TextView txtCafePhone;
     TextView txtCafeHours;
-    TextView txtCafeHtml;
-    TextView txtCafeMap;
+    Button btnCafeHtml;
     TextView txtCafeHistory;
     ImageView imgCafeImage;
 
@@ -31,8 +34,7 @@ public class CafeDetailsActivity extends AppCompatActivity {
         txtCafeAddy = (TextView) findViewById(R.id.txtCafeAddy);
         txtCafePhone = (TextView) findViewById(R.id.txtCafePhone);
         txtCafeHours = (TextView) findViewById(R.id.txtCafeHours);
-        txtCafeHtml = (TextView) findViewById(R.id.txtCafeHtml);
-        txtCafeMap = (TextView) findViewById(R.id.txtCafeMap);
+        btnCafeHtml = (Button) findViewById(R.id.btnCafeHtml);
         txtCafeHistory = (TextView) findViewById(R.id.txtCafeHistory);
         imgCafeImage = (ImageView) findViewById(R.id.imgCafeImage);
 
@@ -41,9 +43,19 @@ public class CafeDetailsActivity extends AppCompatActivity {
         txtCafeAddy.setText(bundle.getString("cafeAddress"));
         txtCafePhone.setText(bundle.getString("cafePhone"));
         txtCafeHours.setText(bundle.getString("cafeHours"));
-        txtCafeHtml.setText(bundle.getString("cafeHtml"));
-        txtCafeMap.setText(bundle.getString("cafeMapAddr"));
+        btnCafeHtml.setText(bundle.getString("cafeHtmlLabel"));
         txtCafeHistory.setText(bundle.getString("cafeHistory"));
         imgCafeImage.setImageResource(bundle.getInt("cafeImage"));
+
+        // create onclick event for web //
+        btnCafeHtml.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), WebViewActivity.class);
+                bundle.putString("cafeWebView", bundle.getString("cafeHtml"));
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
     }
 }

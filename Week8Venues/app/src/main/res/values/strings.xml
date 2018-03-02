@@ -10,8 +10,8 @@
     <string name="cdm_addy">800 Decatur Street  New Orleans, LA  70116</string>
     <string name="cdm_phone">(504) 525-4544</string>
     <string name="cdm_hours">Open 24 Hours</string>
-    <string name="cdm_map">http://maps.google.com/?q=800+Decatur+Street%2C+New+Orleans%2C+%2C+70116%2C+us</string>
     <string name="cdm_html">http://www.cafedumonde.com/</string>
+    <string name="cdm_html_label">Cafe du Monde</string>
     <string name="cdm_history">The Original Cafe Du Monde Coffee Stand was established in 1862 in
         the New Orleans French Market. The Cafe is open 24 hours a day, seven days a week. It closes
         only on Christmas Day and on the day an occasional Hurricane passes too close to

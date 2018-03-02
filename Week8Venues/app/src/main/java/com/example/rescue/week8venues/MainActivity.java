@@ -48,8 +48,10 @@ public class MainActivity extends AppCompatActivity {
     String cafeAddress = "";
     String cafePhone = "";
     String cafeHours = "";
-    String cafeMapAddr = "";
+    String cafeMap = "";
+    String cafeMapLabel = "";
     String cafeHtml = "";
+    String cafeHtmlLabel = "";
     String cafeHistory = "";
     int cafeImage = 0;
 
@@ -147,8 +149,8 @@ public class MainActivity extends AppCompatActivity {
                 cafeAddress = getResources().getString(R.string.cdm_addy);
                 cafePhone = getResources().getString(R.string.cdm_phone);
                 cafeHours = getResources().getString(R.string.cdm_hours);
-                cafeMapAddr = getResources().getString(R.string.cdm_map);
                 cafeHtml = getResources().getString(R.string.cdm_html);
+                cafeHtmlLabel = getResources().getString(R.string.cdm_html_label);
                 cafeHistory = getResources().getString(R.string.cdm_history);
                 cafeImage = R.mipmap.coffeeimage_600_0;
             }
@@ -173,7 +175,9 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("cafePhone", cafePhone);
         bundle.putString("cafeHours", cafeHours);
         bundle.putString("cafeHtml", cafeHtml);
-        bundle.putString("cafeMapAddr", cafeMapAddr);
+        bundle.putString("cafeHtmlLabel", cafeHtmlLabel);
+        bundle.putString("cafeMap", cafeMap);
+        bundle.putString("cafeMapLabel", cafeMapLabel);
         bundle.putString("cafeHistory", cafeHistory);
         bundle.putInt("cafeImage", cafeImage);
 
